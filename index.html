@@ -444,8 +444,8 @@
                                     <p class="mb-4"><a href=https://github.com/bkoconnell/cs350-milestones>https://github.com/bkoconnell/cs350-milestones/</a></p>
                                     <br />
                                     <h6 class="mb-4">Milestone 1 - Sound Sensor </h6>
-                                    <p class="mb-4">This introductory milestone introduced a basic sound sensor from the GrovePi+ kit. 
-                                        An LED light was attached to the embedded system along with the sound senor, and software was modified accordingly 
+                                    <p class="mb-4">This introductory milestone utilized a basic sound sensor from the GrovePi+ kit. 
+                                        An LED light was attached to the embedded system along with the sound sensor, and software was modified accordingly 
                                         so that when sound exceeded a specified threshold it triggered the LED light to turn on. 
                                         The specific milestone 1 modifications are commented in the source code. 
                                     </p>
@@ -453,7 +453,25 @@
                                         <a href=https://github.com/bkoconnell/cs350-milestones/tree/main/milestone1_sound_sensor>https://github.com/bkoconnell/cs350-milestones/tree/main/milestone1_sound_sensor </a></p>
                                     <p class="mb-4">Milestone 1 demo: 
                                         <a href=https://youtu.be/Qr349Zf1F6U>https://youtu.be/Qr349Zf1F6U</a></p>
-                                    <br />                                    
+                                    <br />
+                                    <h6 class="mb-4">Milestone 2 - Digital Humidity & Temperature Sensor </h6>
+                                    <p class="mb-4">This milestone is the first building block for the final project. 
+                                        The Grove DHT (digital humidity and temperature) sensor is used to capture data readings for temperature and humidity of the environment. 
+                                        The software implements a while loop to read in the data from the sensor and converts the temperature reading to Fahrenheit. 
+                                        It then creates a JSON object for the data with specific formatting, then stores the object in a JSON database file (output as data.json). 
+                                        Additionally, the JSON data is output to the console for demonstration purposes.
+                                    </p>
+                                    <p class="mb-4">The software also converts the data readings to string format then outputs the strings to an LCD screen. 
+                                        A sleep timer is set at the end of the loop, which determines how often the loop iterates. This controls the output frequency for both the JSON file and the LCD screen refresh. 
+                                        It's worth noting that each successive loop iteration appends the new data to the existing JSON file so that previous data is not overwritten. 
+                                        The JSON database file (data.json) for this milestone is located in the directory with the source code (link below). 
+                                        In the demo below, the Python script is run in the terminal and I place my fingers on the DHT sensor to manipulate the humidity and demonstrate functionality of the program.
+                                    </p>
+                                    <p class="mb-4">Milestone 2 source code: 
+                                        <a href=https://github.com/bkoconnell/cs350-milestones/tree/main/milestone2_dht_sensor>https://github.com/bkoconnell/cs350-milestones/tree/main/milestone2_dht_sensor </a></p>
+                                    <p class="mb-4">Milestone 2 demo: 
+                                        <a href=https://youtu.be/Epvm2UJLJi0>https://youtu.be/Epvm2UJLJi0</a></p>
+                                    <br />
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window

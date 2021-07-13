@@ -462,7 +462,8 @@
                                         Additionally, the JSON data is output to the console for demonstration purposes.
                                     </p>
                                     <p class="mb-4">The software also converts the data readings to string format then outputs the strings to an LCD screen. 
-                                        A sleep timer is set at the end of the loop, which determines how often the loop iterates. This controls the output frequency for both the JSON file and the LCD screen refresh. 
+                                        A sleep timer is set at the end of the loop, which determines how often the loop iterates. 
+                                        This controls the output frequency for both the JSON file and the LCD screen refresh. 
                                         It's worth noting that each successive loop iteration appends the new data to the existing JSON file so that previous data is not overwritten. 
                                         The JSON database file (data.json) for this milestone is located in the directory with the source code (link below). 
                                         In the demo below, the Python script is run in the terminal and I place my fingers on the DHT sensor to manipulate the humidity and demonstrate functionality of the program.
@@ -471,6 +472,24 @@
                                         <a href=https://github.com/bkoconnell/cs350-milestones/tree/main/milestone2_dht_sensor>https://github.com/bkoconnell/cs350-milestones/tree/main/milestone2_dht_sensor </a></p>
                                     <p class="mb-4">Milestone 2 demo: 
                                         <a href=https://youtu.be/Epvm2UJLJi0>https://youtu.be/Epvm2UJLJi0</a></p>
+                                    <br />
+                                    <h6 class="mb-4">Milestone 3 - Light Sensor </h6>
+                                    <p class="mb-4">Another component of the final project is the light sensor, which is introduced in this milestone. 
+                                        The goal of this milestone is to simulate an interupt condition for the embedded system. 
+                                        The software is designed so that when the light reading crosses a specific threshold (when the environment's lighting is dark enough) the attached LED will turn on. 
+                                        The logic is written inside of a while loop and a sleep timer is set at the end of the loop, which determines how often the loop iterates. 
+                                        Each iteration executes the logic to read in the sensor data and check it against the threshold.
+                                    </p>
+                                    <p class="mb-4">In the demo below, a blue LED and a light sensor are connected to the embedded system. 
+                                        When the program is initiated, the blue LED turns on because the light in the room is dark enough to trigger it. 
+                                        However, when I shine a flashlight onto the light sensor, the blue LED shuts off. 
+                                        This demonstrates the interupt condition set by the lighting threshold in the software. 
+                                        For each loop iteration, the sensor reading and calculated resistance are output to the console.
+                                    </p>
+                                    <p class="mb-4">Milestone 3 source code: 
+                                        <a href=https://github.com/bkoconnell/cs350-milestones/tree/main/milestone3_light_sensor>https://github.com/bkoconnell/cs350-milestones/tree/main/milestone3_light_sensor </a></p>
+                                    <p class="mb-4">Milestone 3 demo: 
+                                        <a href=https://youtu.be/Vu1d4RBZwRk>https://youtu.be/Vu1d4RBZwRk</a></p>
                                     <br />
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>

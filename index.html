@@ -327,7 +327,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">IP Coalescer</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">IPv4 Coalescer</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -335,17 +335,80 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/coalescence_py.png" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/coalescence_py.png" 
+                                        alt="Snippet of source code from the coalescence.py module." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Some Text.</p>
-                                    <p class="mb-4">sOME tEXT. 
-                                        </p>
-                                    <p class="mb-4"> sOME TEXT.                    
+                                    <p class="mb-4">This application is a solution to a practice exercise with subnets. 
+                                        It is written in Python utilizing OOP with several modules that handle various tasks. 
+                                        An input datafile was provided with several thousand lines of subnet data.
                                     </p>
-                                    <p class="mb-4">MORE text.
+                                    <p class="mb-4"><strong>The objective:</strong> 
+                                        to read and parse the input file, combine all possible subnets on each line into the least amount of subnets possible, 
+                                        format the data accordingly, and write the formatted data to a CSV file.
                                     </p>
-                                    <p class="mb-4">For the source code, please visit my Github repository:</p>
-                                    <p class="mb-4"><a href=https://github.com/bkoconnell/coalescer>https://github.com/bkoconnell/coalescer/</a></p>
+                                    <p class="mb-4">Instead of providing a requirements document with formatting specs, an example output file was given to me. 
+                                        The instructions were to produce a <em>solution output file</em> that's identical to the example output file, 
+                                        therefore some trial & error was involved to determine the appropriate formatting. The input data includes invalid subnets, 
+                                        so data validation was critical. Also, subnets can only be coalesced (combined) if they are contiguous and have the same 
+                                        subnet mask.
+                                    </p>
+                                    <p class="mb-4">To view the intricacies of the formatting, validation, and coalescing requirements, 
+                                        please refer to my comments in the <em>coalesce_ips</em> and <em>format_datatable</em> methods of the 
+                                        <a href="https://github.com/bkoconnell/coalescer/blob/main/coalescence.py" target="_blank">coalescence.py</a> module.
+                                    </p>
+                                    <h3 class="text-secondary mb-0">Coding Highlights</h3>
+                                    <p class="mb-4">My favorite highlights from this assignment are the common functions in the <strong>common.py</strong> module. 
+                                        These functions range from binary math (setting bit, getting bit length, finding lowest set bit, etc.), 
+                                        to intricate conversions (IPv4 mask to CIDR notation, int to IPv4 and vice versa), 
+                                        to data validation (valid IPv4 format, valid mask value, etc.), and customized exception handling.
+                                    </p>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/coalesce_common_func2.png" 
+                                        alt="Snippet of source code." />
+                                    <p class="mb-4">Other highlights include custom generator functions, a custom parser for the subnet data, 
+                                        and thorough unit testing. But the most impressive highlight is certainly the custom algorithms for coalescing IP's 
+                                        and formatting the data through an intricate yet efficient series of conditional statements, helper functions, 
+                                        and recursive functions, which utilize data structures like nested lists and dictionaries to handle the extensive 
+                                        formatting requirements.
+                                    </p>
+                                    <p class="mb-4"></p>Please feel free to review my coalescer algorithm source code 
+                                        <a href="https://github.com/bkoconnell/coalescer/blob/main/coalescence.py" target="_blank">here</a>.
+                                    </p>
+                                    </br>
+                                    <h3 class="text-secondary mb-0">Dockerfile</h3>
+                                    <p class="mb-4">Another requirement of this assignment was to create a Dockerfile with some specific requirements.  
+                                        As a bonus, I created unit tests using PyTest. To incorporate the unit tests, I created a multi-stage Dockerfile, 
+                                        with the 1st stage for testing and the 2nd stage for the Coalescer application.
+                                    </p>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/coalesce_dockerfile_multistage.png" 
+                                        alt="Screenshot of Dockerfile source code." />
+                                    <p class="mb-4">The <strong>test</strong> stage installs the dependencies needed for PyTest, then executes the unit tests. 
+                                        You can view the source code for the unit tests 
+                                        <a href="https://github.com/bkoconnell/coalescer/blob/main/unit_test.py" target="_blank">here</a>.
+                                    </p>
+                                    <p class="mb-4">The <strong>app</strong> stage addresses the specific requirements for the assignment. 
+                                        The docker image must have minimal layers and be as small as possible. It also must update packages, 
+                                        create a new user, then allow the application to be run as the new user. When running the program, 
+                                        command line args must be passed for the <em>input data</em>  and  <em>solution output</em> filepaths.
+                                    </p>
+                                    <h3 class="text-secondary mb-0">Shell Script</h3>
+                                    <p class="mb-4">The final requirement was to write a shell script that builds the docker image and runs the container 
+                                        with a mounted volume for persistent data (e.g. the solution output file).
+                                    </p>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/build_script.png" 
+                                        alt="Screenshot of the build script." />
+                                    <p class="mb-4">As seen in the above screenshot, I added a section in the build script that builds the 
+                                        <strong>test</strong> image and runs the corresponding container <em>prior</em> to building the 
+                                        <strong>app</strong> image. That way, you can confirm that all tests pass before running the app.
+                                    </p>
+                                    <p class="mb-4">Test:</p>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/unittest_dockerfile_executed.png" 
+                                        alt="Screenshot of the unit tests executing inside of the docker container from the test stage." />
+                                        <p class="mb-4">App:</p>
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/coalescer/build_script_execute.png" 
+                                        alt="Screenshot of the Coalescer application running inside the Docker container." />
+                                    <p class="mb-4">For the project's source code, please visit my Github repository and feel free to follow the 
+                                        <strong>Readme</strong> instructions for running the application:</p>
+                                    <p class="mb-4"><a href="https://github.com/bkoconnell/coalescer" target="_blank">https://github.com/bkoconnell/coalescer/</a></p>
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
                                         <i class="fas fa-times fa-fw"></i>
                                         Close Window

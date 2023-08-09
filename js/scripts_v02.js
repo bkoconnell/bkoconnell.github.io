@@ -1,6 +1,14 @@
-// Force browser reload instead of cache (solution found at https://gist.github.com/adrienv1520/7e4bacc44849b7daa5ce323bcc800272)
+// Force browser reload instead of cache (partially borrowed from https://gist.github.com/adrienv1520/7e4bacc44849b7daa5ce323bcc800272)
 if ('performance' in window) {
-    window.location.reload(true); // temp implementation workaround until better solution is implemented
+    const navigationLastEntry = performance.getEntriesByType('navigation').pop();
+
+    console.log(navigationLastEntry);
+
+    // temp workaround until better solution is implemented
+    if (navigationLastEntry
+        && navigationLastEntry.type === 'navigate') {
+        window.location.reload(true);
+    }    
   }
 
 /*!

@@ -1,16 +1,3 @@
-// Force browser reload instead of cache (partially borrowed from https://gist.github.com/adrienv1520/7e4bacc44849b7daa5ce323bcc800272)
-if ('performance' in window) {
-    const navigationLastEntry = performance.getEntriesByType('navigation').pop();
-
-    console.log(navigationLastEntry);
-
-    // temp workaround until better solution is implemented
-    if (navigationLastEntry
-        && navigationLastEntry.type === 'navigate') {
-        window.location.reload(true);
-    }    
-  }
-
 /*!
 * Start Bootstrap - Freelancer v7.0.0 (https://startbootstrap.com/theme/freelancer)
 * Copyright 2013-2021 Start Bootstrap

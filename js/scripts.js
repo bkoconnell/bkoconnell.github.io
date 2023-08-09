@@ -1,12 +1,6 @@
 // Force browser reload instead of cache (solution found at https://gist.github.com/adrienv1520/7e4bacc44849b7daa5ce323bcc800272)
 if ('performance' in window) {
-    const navigationLastEntry = performance.getEntriesByType('navigation').pop();
-  
-    if (navigationLastEntry
-        && navigationLastEntry.type === 'back_forward'
-        && navigationLastEntry.unloadEventStart === 0) {
-      window.location.reload(true);
-    }
+    window.location.reload(true); // temp implementation workaround until better solution is implemented
   }
 
 /*!

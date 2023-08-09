@@ -1,3 +1,8 @@
+// Force browser reload instead of cache (solution found at https://gist.github.com/adrienv1520/7e4bacc44849b7daa5ce323bcc800272)
+if ('performance' in window) {
+    window.location.reload(true); // temp implementation workaround until better solution is implemented
+  }
+
 /*!
 * Start Bootstrap - Freelancer v7.0.0 (https://startbootstrap.com/theme/freelancer)
 * Copyright 2013-2021 Start Bootstrap
@@ -5,8 +10,7 @@
 */
 //
 // Scripts
-// 
-
+//
 window.addEventListener('DOMContentLoaded', event => {
 
     // Navbar shrink function
@@ -20,7 +24,6 @@ window.addEventListener('DOMContentLoaded', event => {
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
         }
-
     };
 
     // Shrink the navbar 
